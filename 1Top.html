@@ -6,95 +6,97 @@
 <title>Image Frame on Blurred Background</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Micro+5&display=swap');
-  
+
   body, html {
     height: 100%;
     margin: 0;
     font-family: 'Micro 5', sans-serif;
+    font-size: large;
     overflow: hidden;
   }
 
-  .background {
-    position: fixed;
-    top: 0; left: 0; bottom: 0; right: 0;
-    background-color: #444444; /* 使用深灰色背景 */
-    filter: blur(5px);
-    z-index: -1;
+  .grid-container {
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    position: relative;
   }
 
-  /*.background {
-    position: fixed;
+  .background {
+    grid-column: 1 / -1;
+    position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
-    background: url('https://cdn.glitch.me/25dea598-19f8-4db8-9cfb-a4fe0cc96f0a/%E6%9C%AA%E5%91%BD%E5%90%8D%E4%BD%9C%E5%93%81%205.png?v=1709307150237') no-repeat center center fixed;
-    background-size: cover;
+    background-color: #444444;
     filter: blur(5px);
     z-index: -1;
-  }*/
-
-  .image-frame, .floating-text {
-    width: 400px;
-    height: auto;
-    border: 5px solid #fff;
-    margin: 50px;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-    position: absolute;
   }
 
   .image-frame {
-    left: 0;
+    grid-column: 1 / 6;
+    align-self: start;
+    justify-self: start;
+    margin: 50px;
+    padding: 20px;
+    border: 5px solid #fff;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   }
 
   .floating-text {
-    right: 0;
-    top: 50px;
-    width: 45%;
-    height: auto;
+    grid-column: 7 / 12;
+    align-self: start;
+    justify-self: start;
+    margin: 40px;
+    padding: 20px;
     background: rgba(255, 255, 255, 0.8);
+    border: 10px solid #fff;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    overflow: auto;
+    font-size: 0.95em;
   }
 
   .video-container {
-  position: absolute;
-  right: -600px; /* Adjusted for layout */
-  top: 200px; /* Adjusted for layout */
-  width: 35%; /* Adjusted for layout */
-  height: 0;
-  padding-bottom: 19.875%; /* Adjusted for aspect ratio, this value might need tweaking */
-  overflow: hidden; 
-  position: relative;
-}
-  /*
-  .video-container {
-    position: absolute;
-    right: -600px; 
-    top: 200px; 
-    width: 35%; 
-    padding-bottom: 11.25%; 
+    grid-column: 7 / 14;
+    align-self: center;
+    justify-self: center;
+    width: 100%;
     height: 0;
+    padding-bottom: 56.25%;
+    overflow: hidden;
     position: relative;
-    */
+    top: -160px;
+  }
+
+  .background, .image-frame, .floating-text, .video-container {
+    z-index: 1;
+  }
+
+  .background {
+    z-index: 0;
+  }
 </style>
 </head>
 <body>
 
-<div class="background"></div>
+<div class="grid-container">
+  <div class="background"></div>
 
-<div class="image-frame">
-  <a href="2Front.html">
-    <img src="https://cdn.glitch.global/25dea598-19f8-4db8-9cfb-a4fe0cc96f0a/1.jpg" alt="Descriptive Text for Image" style="max-width:100%; height:auto;">
-  </a>
-</div>
+  <div class="image-frame">
+    <a href="2Front.html">
+      <img src="https://cdn.glitch.global/25dea598-19f8-4db8-9cfb-a4fe0cc96f0a/1.jpg" alt="Descriptive Text for Image" style="width:100%; height:auto;">
+    </a>
+  </div>
 
-<div class="floating-text">
-  <h2>Blue Gun</h2>
-  <p>This image captures the essence. Its vibrant colors and intricate details evoke an emotional response and highlight specific elements.</p>
-</div>
+  <div class="floating-text">
+    <h2>Blue Gun</h2>
+    <p>This is a dream collage inspired by blue smoke. In the center of the picture, a city full of modern high-rise buildings is separated from reality by an iron grid. Two silver people were talking, and a blue butterfly stopped on the chains, and these chains seemed to bind the mysterious blue flower on the right that was releasing smoke. There is a man holding a gun, while the other arm in the lower left corner appears to aim at himself in the silver figure's reflection.</p>
+  </div>
 
-<div class="video-container" style="padding-bottom:56.25%; height:0; position:relative;">
+  <div class="video-container">
     <iframe src="https://streamable.com/e/nc0ztb?nocontrols=1&autoplay=1" style="border:none; width:100%; height:100%; position:absolute; left:0; top:0;" allowfullscreen></iframe>
   </div>
-  
+</div>
 
 </body>
 </html>

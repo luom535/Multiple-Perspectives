@@ -1,23 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Micro+5&display=swap');
 
-/* Ensure the page uses full height and set the default text color to light grey */
+/* Grid Styles */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.item {
+    background-color: #444;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+.grid-item {
+    background-color: #444;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Global Styles */
 html, body {
     height: 100%;
     margin: 0;
-    background-color: #333; /* Matching the video background color */
-    color: #808080; /* Light grey color for the text */
+    background-color: #333; 
+    color: #808080;
     font-family: 'Micro 5', Arial, sans-serif;
     cursor: url('https://cdn.glitch.global/25dea598-19f8-4db8-9cfb-a4fe0cc96f0a/未命名作品%207.png'), auto;
 }
 
-
-/* Position and size the video */
+/* Video Background Styles */
 .video-background {
-    position: relative; /* Change to relative positioning */
-    width: 60%; /* Smaller width */
-    /* Adjust the height according to the aspect ratio of the video */
-    padding-top: 33.75%; /* 16:9 aspect ratio */
-    margin: 2% auto 0; /* Center the video in the middle top of the page */
+    position: relative; 
+    width: 60%; 
+    padding-top: 33.75%; 
+    margin: 2% auto 0;
 }
 
 .video-background iframe {
@@ -30,7 +55,7 @@ html, body {
     height: 100%;
 }
 
-/* Position the content on top of the video */
+/* Content Styles */
 .content {
     position: relative;
     z-index: 1;
@@ -38,28 +63,28 @@ html, body {
     padding: 20px;
 }
 
-/* Style for the button */
+/* Button Styles */
 #startButton {
     font-size: 24px;
     padding: 10px 20px;
     cursor: pointer;
-    margin-top: 20px; /* Add some space above the button */
-    background-color: #444; /* Darker grey for the button */
-    color: #fff; /* White text color */
-    border: none; /* Removing the border */
+    margin-top: 20px;
+    background-color: #444; 
+    color: #fff; 
+    border: none; 
 }
 
-/* Style for the list */
+/* List Styles */
 ul {
     list-style: none;
     padding: 0;
 }
 
 ul li a {
-    color: white; /* White color for links */
-    text-decoration: none; /* Optional: Removes underline from links */
+    color: white; 
+    text-decoration: none; 
 }
 
 ul li a:hover {
-    text-decoration: underline; /* Underline on hover for links */
+    text-decoration: underline;
 }

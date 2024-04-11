@@ -6,74 +6,95 @@
 <title>Image Frame on Blurred Background</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Micro+5&display=swap');
-  
+
   body, html {
     height: 100%;
     margin: 0;
     font-family: 'Micro 5', sans-serif;
+    font-size: large;
     overflow: hidden;
   }
 
-  
+  .grid-container {
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    position: relative;
+  }
+
   .background {
-    position: fixed;
+    grid-column: 1 / -1;
+    position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
-    background-color: #444444; /* 使用深灰色背景 */
+    background-color: #444444;
     filter: blur(5px);
     z-index: -1;
   }
 
-  .image-frame, .floating-text {
-    width: 400px;
-    height: auto;
-    border: 5px solid #fff;
+  .image-frame {
+    grid-column: 1 / 6;
+    align-self: start;
+    justify-self: start;
     margin: 50px;
     padding: 20px;
+    border: 5px solid #fff;
     background-color: #fff;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-    position: absolute;
-  }
-
-  .image-frame {
-    left: 0;
   }
 
   .floating-text {
-    right: 0;
-    top: 50px;
-    width: 45%;
-    height: auto;
+    grid-column: 7 / 12;
+    align-self: start;
+    justify-self: start;
+    margin: 40px;
+    padding: 20px;
     background: rgba(255, 255, 255, 0.8);
+    border: 10px solid #fff;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    overflow: auto;
+    font-size: 0.95em;
   }
 
   .video-container {
-    position: absolute;
-    right: -600px; /* Adjusted for layout */
-    top: 200px; /* Adjusted for layout */
-    width: 35%; /* Adjusted for layout */
-    padding-bottom: 11.25%; /* Adjusted for aspect ratio */
+    grid-column: 7 / 14;
+    align-self: center;
+    justify-self: center;
+    width: 100%;
     height: 0;
+    padding-bottom: 56.25%;
+    overflow: hidden;
     position: relative;
+    top: -160px;
+  }
+
+  .background, .image-frame, .floating-text, .video-container {
+    z-index: 1;
+  }
+
+  .background {
+    z-index: 0;
   }
 </style>
 </head>
 <body>
 
-<div class="background"></div>
+<div class="grid-container">
+  <div class="background"></div>
 
-<div class="image-frame">
-  <a href="6Right.html">
-    <img src="https://cdn.glitch.global/25dea598-19f8-4db8-9cfb-a4fe0cc96f0a/5.png" alt="Descriptive Text for Image" style="max-width:100%; height:auto;">
-  </a>
-</div>
+  <div class="image-frame">
+    <a href="6Right.html">
+      <img src="https://cdn.glitch.global/25dea598-19f8-4db8-9cfb-a4fe0cc96f0a/5.png" alt="Descriptive Text for Image" style="max-width:100%; height:auto;">
+    </a>
+  </div>
 
-<div class="floating-text">
-  <h2>Blue Gun</h2>
-  <p>This image captures the essence. Its vibrant colors and intricate details evoke an emotional response and highlight specific elements.</p>
-</div>
+  <div class="floating-text">
+    <h2>Temple River</h2>
+    <p>Amidst the clouds and mist, several classical pavilions are suspended in the air. Around the pavilions, several elegant egrets are flying. There was no sunshine, the whole scene was foggy, and there were many beautiful flowers and plants growing there. I smelled the fragrance of flowers mixed with water vapor, and I ran forward. There is a lake ahead, surrounded by a lot of mirrors made of water. There is a temple in the middle of the lake. Memory fragments rained down from the sky, and I saw my memory. The pieces fell to the ground and became trees, and the trees grew into forests. I suddenly fell, and a transparent spirit-like wolf caught me. We disappeared together. . .</p>
+  </div>
 
-<div class="video-container" style="padding-bottom:56.25%; height:0; position:relative;">
-  <iframe src="https://streamable.com/e/nqteex?nocontrols=1&autoplay=1" style="border:none; width:100%; height:100%; position:absolute; left:0; top:0;" allowfullscreen></iframe>
+  <div class="video-container">
+    <iframe src="https://streamable.com/e/nqteex?nocontrols=1&autoplay=1" style="border:none; width:100%; height:100%; position:absolute; left:0; top:0;" allowfullscreen></iframe>
 </div>
 
 </body>
